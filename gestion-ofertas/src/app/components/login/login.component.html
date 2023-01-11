@@ -1,0 +1,43 @@
+<header class="login">
+  <h1 class="login__title">APP-Vending</h1>
+</header>
+
+<div class="white">
+  <div class="container">
+    <div class="login__flex">
+      <form
+        class="login__form"
+        #formTemplate="ngForm"
+        (ngSubmit)="getDataForm(formTemplate)"
+      >
+        <figure class="login__img">
+          <img src="../../../assets/images/logoDas.png" alt="Logo Principal" />
+        </figure>
+        <input
+          (input)="userMail($event)"
+          type="text"
+          placeholder=" Email Usuario"
+          name="mail_user"
+          ngModel
+          id="mail_user"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          name="password_user"
+          id="password_user"
+          ngModel
+        />
+
+        <div class="buttons">
+          <button class="btn buttons__login">Login</button>
+          <a [routerLink]="['/login']" (click)="modal()"
+            >Olvidé mi constraseña</a
+          >
+        </div>
+        <p class="textError" *ngIf="error.length > 0">{{ error }}</p>
+      </form>
+    </div>
+  </div>
+</div>

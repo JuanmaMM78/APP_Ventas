@@ -1,0 +1,73 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+  <form
+    novalidate
+    [formGroup]="register"
+    class="form"
+    (ngSubmit)="getDataForm()"
+  >
+
+    <label for="">Introduzca el Nombre</label>
+    <input
+      type="text"
+      placeholder="Nombre Usuario"
+      formControlName="name_user"
+      class="name"
+    />
+    <p class="text-danger" *ngIf="name_userError?.param">
+      {{ name_userError?.msg }}
+    </p>
+
+    <label for="">Introduzca los Apellidos</label>
+    <input
+      type="text"
+      placeholder="Apellido Usuario"
+      formControlName="surname_user"
+      class="surname"
+    />
+    <p class="text-danger" *ngIf="surname_userError?.param">
+      {{ surname_userError?.msg }}
+    </p>
+
+    <label for="email">Introduzca un Email</label>
+    <input
+      type="text"
+      placeholder="Email Usuario"
+      formControlName="mail_user"
+      class="email"
+    />
+    <p class="text-danger" *ngIf="mail_userError?.param">
+      {{ mail_userError?.msg }}
+    </p>
+
+    <label for="password">Introduzca una Contraseña</label>
+    <input
+      type="text"
+      placeholder="Contraseña Usuario"
+      formControlName="password_user"
+      class="password"
+    />
+    <p class="text-danger" *ngIf="password_userError?.param">
+      {{ password_userError?.msg }}
+    </p>
+
+    <label for="role">Indique el Cargo</label>
+    <select name="role" id="role" formControlName="role">
+      <option value="user" selected>Comercial</option>
+      <option value="admin">Director de Ventas</option>
+    </select>
+    <p class="text-danger" *ngIf="roleError?.param">
+      {{ roleError?.msg }}
+    </p>
+
+    <label for="status">Indique el Estado</label>
+    <select name="status" id="status" formControlName="status">
+      <option value="1" selected>Activo</option>
+      <option value="0">Inactivo</option>
+    </select>
+    <p class="text-danger" *ngIf="statusError?.param">
+      {{ statusError?.msg }}
+    </p>
+    <input class="btn" type="submit" value="Crear" />
+  </form>
+</div>

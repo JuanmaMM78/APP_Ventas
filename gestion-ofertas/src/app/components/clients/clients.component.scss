@@ -1,0 +1,172 @@
+@import "variables";
+
+.container {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+h1 {
+  text-align: center;
+  margin: 2rem 0;
+  @include mobileFirst(Laptop) {
+    justify-content: center;
+  }
+}
+
+.clients-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.filter-btn {
+  background-color: white;
+  border-radius: 8px;
+  color: black;
+}
+
+.add {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonAdd {
+  margin-bottom: 2rem;
+  border: 1px solid;
+  border-radius: 8px;
+  border: 1px, black;
+  font-size: 1rem;
+  padding: 0.7rem;
+  cursor: pointer;
+  background-color: $green3;
+  font-weight: bold;
+  color: black;
+
+  @include mobileFirst(Laptop) {
+    &:hover {
+      background-color: $semigreen;
+    }
+  }
+}
+
+.container__flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding-bottom: 1rem;
+}
+
+.card {
+  display: flex;
+}
+
+.clients {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background-color: $brownW;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 5px 5px 12px -6px rgba(0, 0, 0, 0.75);
+
+  &.active {
+    &:after {
+      content: "";
+      position: absolute;
+      margin: 202px;
+      width: 60px;
+      height: 60px;
+      right: -232px;
+      transform: rotate(45deg);
+      background-color: $green3;
+    }
+
+    &:hover {
+      @include mobileFirst(Laptop) {
+        transform: scale(1.01);
+        &:after {
+        background-color: $green2;
+        }
+      }
+    }
+  }
+
+  &.inactive {
+    &:after {
+      content: "";
+      position: absolute;
+      margin: 202px;
+      width: 60px;
+      height: 60px;
+      right: -232px;
+      transform: rotate(45deg);
+      background-color: rgb(232, 100, 100);
+    }
+
+    &:hover {
+      @include mobileFirst(Laptop) {
+      transform: scale(1.01);
+        &:after {
+        background-color: rgb(245, 63, 63);
+        }
+      }
+    }
+  }
+
+  &__header {
+    margin: 0 auto;
+  }
+
+  &__body {
+    width: 100%;
+    padding-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+
+    .mail {
+      width: 100%;
+      text-align: start;
+    }
+
+    .direc {
+      text-align: start;
+    }
+  }
+
+  &.text__body {
+    font-size: 12px;
+
+    @include mobileFirst(xs) {
+      font-size: 1rem;
+    }
+  }
+
+  .buttonEdit {
+    margin-top: 0.6rem;
+
+    button {
+      background-color: $brown4;
+      padding: 0.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+
+      @include mobileFirst(Laptop) {
+        &:hover {
+          background-color: $brown3;
+        }
+      }
+    }
+  }
+}

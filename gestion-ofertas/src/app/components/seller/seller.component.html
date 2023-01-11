@@ -1,0 +1,73 @@
+<header class="login">
+  <h1 class="login__title">Comercial</h1>
+  <div class="login__buttons">
+    <button
+      [routerLink]="['products']"
+      class="btn buttonProducts"
+      routerLinkActive="active"
+    >
+      Productos
+    </button>
+    <button
+      [routerLink]="['form']"
+      routerLinkActive="active"
+      class="btn buttonSale"
+    >
+      Venta
+    </button>
+    <button
+      [routerLink]="['clients']"
+      routerLinkActive="active"
+      class="btn buttonOffer"
+    >
+      Clientes
+    </button>
+    <button
+      [routerLink]="['orders']"
+      routerLinkActive="active"
+      class="btn buttonList"
+    >
+      Pedidos
+    </button>
+    <button class="btn red" (click)="logout()">Salir</button>
+  </div>
+</header>
+
+<div [ngClass]="{ active: switch }" class="login__burger">
+  <button
+    (click)="changeSwitch()"
+    [routerLink]="['products']"
+    class="btn buttonProducts"
+    routerLinkActive="active"
+  >
+    Productos
+  </button>
+  <button
+    (click)="changeSwitch()"
+    [routerLink]="['form']"
+    routerLinkActive="active"
+    class="btn buttonSale"
+  >
+    Venta
+  </button>
+  <button
+    (click)="changeSwitch()"
+    [routerLink]="['clients']"
+    routerLinkActive="active"
+    class="btn buttonOffer"
+  >
+    Clientes
+  </button>
+  <button
+    (click)="changeSwitch()"
+    [routerLink]="['orders']"
+    routerLinkActive="active"
+    class="btn buttonList"
+  >
+    Pedidos
+  </button>
+  <button class="btn red" (click)="logout()">Salir</button>
+</div>
+
+<div (click)="changeSwitch()" class="button__burger"></div>
+<router-outlet></router-outlet>

@@ -1,0 +1,129 @@
+@import "variables";
+
+h1 {
+  text-align: center;
+  margin: 2rem 0;
+  line-height: 1;
+}
+
+.container__flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.employee {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid black;
+  width: 300px;
+  height: 170px;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: white;
+  box-shadow: 5px 5px 12px -6px rgba(0, 0, 0, 0.75);
+
+  &.active {
+    &:after {
+      content: "";
+      position: absolute;
+      margin: -15px;
+      width: 60px;
+      height: 60px;
+      height: 60px;
+      right: -16px;
+      bottom: -14px;
+      transform: rotate(45deg);
+      background-color: $green3;
+      overflow: hidden;
+    }
+
+    &:hover {
+      @include mobileFirst(Laptop) {
+        transform: scale(1.01);
+        &:after {
+          background-color: $green2;
+        }
+      }
+    }
+  }
+
+  &.inactive {
+    &:after {
+      content: "";
+      position: absolute;
+      margin: -15px;
+      width: 60px;
+      height: 60px;
+      right: -16px;
+      bottom: -14px;
+      transform: rotate(45deg);
+      background-color: rgb(232, 100, 100);
+      overflow: hidden;
+    }
+
+    &:hover {
+      @include mobileFirst(Laptop) {
+        transform: scale(1.01);
+        &:after {
+          background-color: rgb(245, 63, 63);
+        }
+      }
+    }
+  }
+}
+
+.banner {
+  width: 100%;
+  background-color: aqua;
+  height: 10px;
+}
+
+.comercial {
+  background-color: white;
+}
+
+.director {
+  background-color: $green4;
+}
+
+.seo {
+  background-color: $semigreen;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+
+  select {
+    color: black;
+    background-color: white;
+    border-radius: 8px;
+  }
+}
+
+.btnedit {
+  font-size: 10px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  button {
+    cursor: pointer;
+  }
+}

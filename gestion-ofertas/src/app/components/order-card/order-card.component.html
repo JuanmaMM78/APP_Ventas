@@ -1,0 +1,13 @@
+<div
+  class="card"
+  [ngClass]="{
+    accepted: myOrder?.status === 'aceptado',
+    rejected: myOrder?.status === 'denegado',
+    wait: myOrder?.status === 'pendiente'
+  }"
+>
+  <p>Nº Pedido: <strong> {{ myOrder?.id_order }}</strong></p>
+  <p><strong>{{ myOrder?.name_client }}</strong></p>
+  <p><strong>{{ myOrder?.name_product }}</strong></p>
+  <p><strong></strong> {{ myOrder?.date_order | date:'mediumDate' }}</p>
+</div>

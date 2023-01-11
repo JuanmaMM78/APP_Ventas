@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="orders-header">
+    <h1 class="orders">Pedidos</h1>
+
+    <div *ngIf="viewFilter">
+      <div class="orderFilter">
+        <h3 class="orders">Filtrar por:</h3>
+        <select
+          [(ngModel)]="status"
+          (click)="resetear()"
+          id="orderStatusOption"
+          class="btn filter-btn"
+          (input)="showOrdersByStatus($event)"
+        >
+          <option value="" disable selected >Estado</option>
+          <option value="todos">Todos</option>
+          <option value="aceptado">Aceptados</option>
+          <option value="denegado">Rechazado</option>
+          <option value="pendiente">Pendiente</option>
+        </select>
+        <select
+          [(ngModel)]="status"
+          (click)="resetear()"
+          name="orderStatusOptions"
+          id="orderStatusOption"
+          class="btn filter-btn"
+          (input)="showOrdersByClients($event)"
+        >
+          <option value="" selected>Cliente</option>
+          <option *ngFor="let client of arrClients" [value]="client.id_client">
+            {{ client.name_client }}
+          </option>
+        </select>
+        <select
+          [(ngModel)]="status"
+          (click)="resetear()"
+          name="orderCharacterOptions"
+          id="filterCharacter"
+          class="btn filter-btn"
+          (input)="showOrdersByDate($event)"
+        >
+          <option value="" selected>Fecha</option>
+          <option *ngFor="let date of arrDatesOnly" [value]="date">
+            {{ date | date: "mediumDate" }}
+          </option>
+        </select>
+        <select
+          [(ngModel)]="status"
+          (click)="resetear()"
+          name="orderCharacterOptions"
+          id="filterCharacter"
+          class="btn filter-btn"
+          (input)="showOrdersByProducts($event)"
+        >
+          <option value="" selected>Producto</option>
+          <option
+            *ngFor="let product of arrProducts"
+            [value]="product.id_product"
+          >
+            {{ product.name_product }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="flexContainer">
+    <article class="orders" *ngFor="let order of arrOrders">
+      <a [routerLink]="[path, order.id_order]">
+        <app-order-card [myOrder]="order"></app-order-card>
+      </a>
+    </article>
+  </div>
+</div>
+<div class="center">
+  <p class="textList" *ngIf="arrOrders.length === 0">No hay ningún pedido</p>
+</div>

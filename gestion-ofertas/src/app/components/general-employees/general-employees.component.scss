@@ -1,0 +1,40 @@
+@import "variables";
+
+.submenu {
+  background-color: $green3;
+  width: 100%;
+  padding: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: row;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+
+  @include mobileFirst(md) {
+    flex-direction: row;
+  }
+
+  button {
+    width: 100px;
+    min-width: 50px;
+    padding: 0.5rem;
+    background-color: $brown4;
+    color: rgb(36, 36, 33);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 5px 5px 12px -6px rgba(0, 0, 0, 0.75);
+    border: 1px solid;
+
+    @include mobileFirst(Laptop) {
+      &:hover {
+        background-color: $brown3;
+      }
+    }
+  }
+}
+
+.active {
+  border: 3px solid white;
+}

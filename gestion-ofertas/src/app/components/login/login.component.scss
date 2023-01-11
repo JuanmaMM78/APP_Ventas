@@ -1,0 +1,136 @@
+@import "variables";
+
+.login {
+  background-color: $brown3;
+  padding: 1.5rem;
+
+  &__title {
+    color: $green1;
+    text-align: center;
+
+    @include mobileFirst(md) {
+      text-align: start;
+    }
+  }
+}
+
+.white {
+  background-color: white;
+  height: 100vh;
+
+  @media (max-width: 825px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+.login__flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1rem;
+  gap: 1rem;
+
+  .login__img {
+    border-radius: 50%;
+    background-color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 350px;
+
+    @include underSize(xs) {
+      border-radius: 50%;
+      max-width: 180px;
+    }
+
+    @include underSize(md) {
+      width: 200px;
+    }
+  }
+
+  .btn {
+    background-color: #c9c0a5;
+    border-radius: 8px;
+    color: $black;
+    font-size: 1.1rem;
+    padding: 0.7rem;
+    cursor: pointer;
+    box-shadow: 5px 5px 12px -6px rgba(0, 0, 0, 0.75);
+
+    @include mobileFirst(Laptop) {
+      &:hover {
+        background-color: $brown3;
+      }
+    }
+  }
+
+  .login__form {
+    margin-top: 1rem;
+    background-color: $green3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    width: 450px;
+    box-shadow: 5px 5px 5px green;
+
+    @media (min-width: 825px) {
+      width: 45%;
+      min-width: 500px;
+    }
+
+    @media (max-width: 825px) {
+      width: 45%;
+      min-width: 350px;
+    }
+
+    @media (min-width: 500px) {
+      min-width: 400px;
+    }
+
+    @media (max-width: 420px) {
+      max-width: 300px;
+    }
+
+    @media (max-width: 370px) {
+      max-width: 60%;
+    }
+
+    .textError {
+      color: red;
+    }
+
+    input {
+      font-size: 1.3rem;
+      margin: 1rem 0;
+      border: none;
+      padding: 0.7rem;
+      border-radius: 8px;
+      border: 1px solid black;
+      @include underSize(xs) {
+        width: 245px;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    a {
+      color: $green4;
+    }
+  }
+
+  .buttons__password {
+    margin: 10px 0;
+  }
+}

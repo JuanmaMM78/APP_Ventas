@@ -1,0 +1,48 @@
+<div class="bodyProduct">
+  <div class="container">
+    <div
+      class="card accepted"
+      [ngClass]="{
+        accepted: order?.status === 'aceptado',
+        rejected: order?.status === 'denegado',
+        wait: order?.status === 'pendiente'
+      }"
+    >
+      <div class="txt">
+        <p><strong>Pedido nº: </strong> {{ order?.id_order }}</p>
+        <p>
+          <strong>Vendedor: </strong> {{ idUser?.name_user }}
+          {{ idUser?.surname_user }}
+        </p>
+        <p><strong>Cliente: </strong> {{ idClient?.name_client }}</p>
+        <p>
+          <strong>Fecha del Pedido:</strong>
+          {{ order?.date_order | date : "mediumDate" }}
+        </p>
+        <p><strong>Producto: </strong> {{ nameProduct }}</p>
+        <p><strong>Precio: </strong> {{ order?.price_sale }}€</p>
+        <p><strong>Cantidad: </strong> {{ order?.vol_sale }}Kg</p>
+        <p><strong>Envío: </strong> {{ order?.shipping }}</p>
+        <p><strong>Pago: </strong> {{ order?.meth_payment }}</p>
+        <p><strong>Comentario: </strong> {{ order?.comment }}</p>
+        <div class="buttonEdit">
+          <button
+            [routerLink]="[path, 'update', order?.id_order]"
+            class="buttonEdit"
+          >
+            <strong>Editar</strong>
+          </button>
+        </div>
+      </div>
+      <div class="img">
+        <figure class="imgProduct">
+          <img
+            loading="lazy"
+            [src]="'https://gestion-ofertas.onrender.com/images/' + imgProduct"
+            [alt]="idProduct?.name_product"
+          />
+        </figure>
+      </div>
+    </div>
+  </div>
+</div>

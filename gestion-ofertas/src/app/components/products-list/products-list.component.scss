@@ -1,0 +1,80 @@
+@import "variables";
+
+h1 {
+  text-align: center;
+  margin: 2rem 0;
+  @include mobileFirst(Laptop) {
+    justify-content: center;
+  }
+}
+
+.flexContainer {
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.textList {
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.container {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.products-header {
+  gap: 1.5rem;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .filter-btn {
+    background-color: white;
+    border-radius: 8px;
+    color: black;
+  }
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active {
+  border: 1px solid white;
+  color: white;
+}
+
+.add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .buttonAdd {
+    margin-bottom: 2rem;
+    border: 1px solid;
+    border-radius: 8px;
+    display: flex;
+    border: 1px, black;
+    font-size: 1rem;
+    padding: 0.7rem;
+    cursor: pointer;
+    background-color: $green3;
+    font-weight: bold;
+    color: black;
+
+    @include mobileFirst(Laptop) {
+      &:hover {
+        background-color: $semigreen;
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<div class="container">
+  <h1 class="products">Productos</h1>
+  <div class="products-header">
+    <select
+      name="productOptions"
+      id="filters"
+      class="btn filter-btn"
+      (input)="showProducts($event)"
+    >
+      <option value="Todos" selected>Todos</option>
+      <option value="Stock">Disponibles</option>
+      <option value="No Stock">No disponibles</option>
+    </select>
+  </div>
+  <div class="add">
+    <button
+      class="buttonAdd"
+      *ngIf="viewButton"
+      [routerLink]="[path, 'newProduct']"
+    >
+      Añadir Producto
+    </button>
+  </div>
+  <div class="flexContainer">
+    <article *ngFor="let product of arrProducts">
+      <app-product-card [myProduct]="product"></app-product-card>
+    </article>
+  </div>
+</div>
+
+<p class="textList" *ngIf="arrProducts.length === 0">
+  No hay ningún producto en la lista
+</p>

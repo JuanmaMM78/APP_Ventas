@@ -1,0 +1,85 @@
+<header class="login">
+  <h1 class="login__title">Dirección</h1>
+  <div class="login__buttons">
+    <button
+      [routerLink]="['generalEmployees']"
+      class="btn buttonRegister"
+      routerLinkActive="active"
+    >
+      Empleados
+    </button>
+    <button class="btn buttonProduct" [routerLink]="['products']" routerLinkActive="active">
+      Productos
+    </button>
+    <button
+      [routerLink]="['form']"
+      class="btn buttonSale"
+      routerLinkActive="active"
+    >
+      Venta
+    </button>
+    <button
+      [routerLink]="['clients']"
+      class="btn buttonOffer"
+      routerLinkActive="active"
+    >
+      Clientes
+    </button>
+    <button
+      [routerLink]="['orders']"
+      class="btn buttonList"
+      routerLinkActive="active"
+    >
+      Pedidos
+    </button>
+    <button class="btn red" (click)="logout()">Salir</button>
+  </div>
+</header>
+
+<div [ngClass]="{ active: switch }" class="login__burger">
+  <button
+    (click)="changeSwitch()"
+    [routerLink]="['generalEmployees']"
+    class="btn buttonProducts"
+    routerLinkActive="active"
+  >
+    Empleados
+  </button>
+
+  <button
+    (click)="changeSwitch()"
+    [routerLink]="['products']"
+    class="btn buttonProducts"
+    routerLinkActive="active"
+  >
+    Productos
+  </button>
+  <button
+    (click)="changeSwitch()"
+    [routerLink]="['form']"
+    routerLinkActive="active"
+    class="btn buttonSale"
+  >
+    Venta
+  </button>
+  <button
+    (click)="changeSwitch()"
+    [routerLink]="['clients']"
+    routerLinkActive="active"
+    class="btn buttonOffer"
+  >
+    Clientes
+  </button>
+  <button
+    (click)="changeSwitch()"
+    [routerLink]="['orders']"
+    routerLinkActive="active"
+    class="btn buttonList"
+  >
+    Pedidos
+  </button>
+  <button class="btn red" (click)="logout()">Salir</button>
+</div>
+
+<div (click)="changeSwitch()" class="button__burger"></div>
+<router-outlet></router-outlet>

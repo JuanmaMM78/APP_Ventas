@@ -1,0 +1,14 @@
+<header class="login">
+  <h1>Hola {{ myProfile?.name_user | titlecase }}</h1>
+  <div class="login__buttons">
+    <div class="buttons">
+      <button class="btn green" (click)="vistas()">Acceso</button>
+      <button class="btn red" (click)="logout()">Salir</button>
+    </div>
+  </div>
+</header>
+<div>
+  <figure class="imgLogo">
+    <img src="../../../assets/images/logoDas.png" alt="logoFincaQuixote" />
+  </figure>
+</div>

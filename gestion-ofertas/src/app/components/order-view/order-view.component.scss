@@ -1,0 +1,220 @@
+@import "variables";
+
+.login {
+  background-color: $brown1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    color: $green4;
+  }
+
+  @include mobileFirst(md) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      margin-bottom: 0;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    .buttonSale {
+      background-color: $green2;
+      color: $black;
+      cursor: pointer;
+    }
+
+    .buttonOffer {
+      background-color: $brown1;
+      color: $black;
+      cursor: pointer;
+    }
+
+    .buttonList {
+      color: $black;
+      cursor: pointer;
+    }
+
+    .buttonRegister {
+      color: $black;
+      cursor: pointer;
+    }
+  }
+}
+
+.bodyProduct {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 300px;
+  text-align: center;
+  border: 1px solid $black;
+  padding: 1rem;
+  box-shadow: 5px 5px 12px -6px rgba(0, 0, 0, 0.75);
+  margin-bottom: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  position:relative;
+  overflow: hidden;
+
+  p {
+    margin: 0.7rem 0;
+  }
+
+  @include mobileFirst(sm) {
+    width: 420px;
+    max-width: 600px;
+  }
+  @include mobileFirst(md) {
+    width: 600px;
+    max-width: 600px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+
+&.accepted {
+  &:after {
+    content: "";
+    position: absolute;
+    margin: -15px;
+    width: 71px;
+    height: 96px;
+    right: -11px;
+    bottom: -23px;
+    transform: rotate(45deg);
+    background-color: $green3;
+  }
+
+  &:hover {
+    @include mobileFirst(Laptop) {
+      transform: scale(1.01);
+      &:after {
+      background-color: $green2;
+      }
+    }
+  }
+}
+
+&.rejected {
+  &:after {
+    content: "";
+    position: absolute;
+    margin: -15px;
+    width: 71px;
+    height: 96px;
+    right: -11px;
+    bottom: -23px;
+    transform: rotate(45deg);
+    background-color: rgb(232, 100, 100);
+  }
+}
+
+&.wait {
+  &:after {
+    content: "";
+    position: absolute;
+    margin: -15px;
+    width: 71px;
+    height: 96px;
+    right: -11px;
+    bottom: -23px;
+    transform: rotate(45deg);
+    background-color: rgb(249, 244, 94, 0.7);
+  }
+
+  &:hover {
+    @include mobileFirst(Laptop) {
+      transform: scale(1.015);
+      &:after {
+      background-color: rgb(249, 244, 94);
+      }
+    }
+  }
+}
+}
+
+.container {
+  margin-top: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgProduct {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  img {
+    max-height: 600px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 12px -6px rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+  }
+
+  @include mobileFirst(sm) {
+    img {
+      max-height: 300px;
+    }
+  }
+  @include mobileFirst(md) {
+    img {
+      max-height: 350px;
+      height: 290px;
+    }
+  }
+}
+
+.txt {
+  @include mobileFirst(md) {
+    width: 50%;
+  }
+}
+
+.buttonEdit {
+  margin: 0.2rem;
+
+  button {
+    background-color: $brown4;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+
+    @include mobileFirst(Laptop) {
+      &:hover {
+        background-color: $brown3;
+        border-radius: 8px;
+        transform: scale(1.05);
+        box-shadow: 5px 5px 12px -6px rgba(0, 0, 0, 0.75);
+      }
+    }
+  }
+}
+

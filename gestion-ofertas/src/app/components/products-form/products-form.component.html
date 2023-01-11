@@ -1,0 +1,92 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+  <form
+    class="form"
+    novalidate
+    [formGroup]="register"
+    class="form"
+    (ngSubmit)="getDataForm()"
+  >
+    <label for="name">Introduzca el Nombre</label>
+    <input
+      placeholder="Nombre"
+      class="name"
+      type="text"
+      formControlName="name_product"
+    />
+    <p class="error" *ngIf="name_productError?.param">
+      {{ name_productError?.msg }}
+    </p>
+
+    <label for="origin">Introduzca el Origen</label>
+    <select name="origin" id="origin" formControlName="origin">
+      <option value="" selected>Origen</option>
+      <option value="campo">Campo</option>
+      <option value="refrigeracion">Refrigeración</option>
+    </select>
+    <p class="error" *ngIf="originError?.param">
+      {{ originError?.msg }}
+    </p>
+
+    <label for="caliber">Introduzca el calibre</label>
+    <select name="caliber" id="caliber" formControlName="caliber">
+      <option value="">Selecciona un Calibre</option>
+      <option value="pequeño">Pequeño</option>
+      <option value="mediano">Mediano</option>
+      <option value="grande">Grande</option>
+    </select>
+    <p class="error" *ngIf="caliberError?.param">
+      {{ caliberError?.msg }}
+    </p>
+
+    <label for="number">Introduzca el Precio</label>
+    <input type="number" placeholder="Precio" formControlName="price" />
+    <p class="error" *ngIf="priceError?.param">
+      {{ priceError?.msg }}
+    </p>
+
+    <label for="number">Introduzca el Stock Inicial</label>
+    <input
+      [(ngModel)]="stockInitial"
+      type="number"
+      placeholder="Stock Inicial"
+      formControlName="stock_initial"
+    />
+    <p class="error" *ngIf="stock_initialError?.param">
+      {{ stock_initialError?.msg }}
+    </p>
+
+    <input
+      [(ngModel)]="stockInitial"
+      class="none"
+      readonly
+      type="number"
+      formControlName="stock_now"
+    />
+
+    <label for="status">Indique el Estado</label>
+    <select name="status" id="status" formControlName="status">
+      <option value="" selected>Estado</option>
+      <option value="1">Activo</option>
+      <option value="0">Inactivo</option>
+    </select>
+    <p class="error" *ngIf="statusError?.param">
+      {{ statusError?.msg }}
+    </p>
+
+    <label for="">Seleccione un Archivo</label>
+    <input
+      type="file"
+      placeholder="Imagen"
+      (change)="changeImg($event)"
+      class="file"
+    />
+    <p class="error" *ngIf="image"> Falta imagen
+     
+    </p>
+    <p (input)="selectImage($event)"></p>
+    <div class="containerButton">
+      <input class="btn" type="submit" value="Crear" />
+    </div>
+  </form>
+</div>

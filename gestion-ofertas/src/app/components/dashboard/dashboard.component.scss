@@ -1,0 +1,82 @@
+@import "variables";
+
+.login {
+  background-color: $green3;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: $black;
+  }
+
+  @include mobileFirst(md) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  justify-content: center;
+  gap: 1rem;
+
+  .green {
+    background-color: $green2;
+    border-radius: 8px;
+    box-shadow: 5px 5px 12px -6px rgba(0, 0, 0, 0.75);
+
+    @include mobileFirst(Laptop) {
+      &:hover {
+        background-color: $green1;
+        
+    }
+    }
+  }
+
+  .red {
+    background-color: rgb(245, 63, 63, 0.7);
+    box-shadow: 5px 5px 12px -6px rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+
+    @include mobileFirst(Laptop) {
+      &:hover {
+        background-color: rgb(245, 63, 63);
+      }
+    }
+  }
+}
+
+button {
+  cursor: pointer;
+  color: black;
+}
+
+.imgLogo {
+  margin-top: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.645));
+  img {
+    width: 400px;
+  }
+  @include mobileFirst(md) {
+    img {
+      max-width: 600px;
+    }
+  }
+}

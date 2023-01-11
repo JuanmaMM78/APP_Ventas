@@ -1,0 +1,59 @@
+//font
+@import url("https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,600;0,700;1,600&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,300&display=swap");
+
+// Variables
+$green1: #456950;
+$green2: #3e724a;
+$green3: #82ae81;
+$green4: #c0d7c6;
+$greenW: #fefffe;
+$semigreen: rgba(128, 173, 127, 0.8);
+
+$brown1: #998655;
+$brown2: #827959;
+$brown3: #ebd09a;
+$brown4: #c9c0a5;
+$brownW: #fffffe;
+$semibrown: rgba(235, 207, 153, 0.33);
+
+$gray1: #aea8a0;
+$gray2: #8e857c;
+$gray3: #faf7f1;
+$gray4: #d5d0c9;
+$grayW: #ffffff;
+$black: #000000;
+
+$orange1: rgb(216, 135, 29);
+
+$bodyFont: "Roboto", sans-serif;
+$titleFont: "Kodchasan", sans-serif;
+
+$fontSize: 1em;
+$marginGrid: 0.625em;
+
+$breakpointTablet: 768px;
+$breakpointDesktop: 1140px;
+$container: 1200px;
+
+// Responsive
+$breakPoints: (
+  xs: 410px,
+  sm: 540px,
+  md: 615px,
+  Laptop: 769px,
+  seller: 699px,
+  breakClientsButton: 840px,
+  lg: 1024px,
+);
+
+@mixin mobileFirst($breakPoint) {
+  @media screen and (min-width: map-get($breakPoints, $breakPoint)) {
+    @content;
+  }
+}
+
+@mixin underSize($breakPoint) {
+  @media screen and (max-width: map-get($breakPoints, $breakPoint)) {
+    @content;
+  }
+}

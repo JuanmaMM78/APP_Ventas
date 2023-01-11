@@ -1,0 +1,48 @@
+@import "variables";
+
+.flexContainer {
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.container {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.orders-header {
+  .filter-btn {
+    background-color: white;
+    margin-left: 1rem;
+    border-radius: 8px;
+    color: black;
+  }
+}
+
+.orderFilter {
+  
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+
+  select {
+    width: 200px;
+    margin-top: 1rem;
+
+    @media (max-width: 520px) {
+      width: 100%;
+    }
+  }
+}
+
+.center {
+  text-align: center;
+  .textList {
+    color: rgb(245, 65, 65);
+  }
+}

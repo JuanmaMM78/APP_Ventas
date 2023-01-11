@@ -1,0 +1,147 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+
+  <form
+    class="form"
+    novalidate
+    [formGroup]="register"
+    (ngSubmit)="getDataForm()"
+  >
+    <label for="client">Listado de Clientes</label>
+    <select name="client" id="client" formControlName="id_client">
+      <option value="" selected>Seleccione un Cliente</option>
+      <option *ngFor="let client of arrClients" [value]="client.id_client">
+        {{ client.name_client }}
+      </option>
+    </select>
+    <p class="text-danger" *ngIf="id_clientError?.param">
+      {{ id_clientError?.msg }}
+    </p>
+    <label for="procuct">Listado de Productos</label>
+    <select name="product" id="product" formControlName="id_product">
+      <option value="" selected>Seleccione un Producto</option>
+      <option *ngFor="let product of arrProducts" [value]="product.id_product">
+        {{ product.name_product }}
+      </option>
+    </select>
+    <p class="text-danger" *ngIf="id_productError?.param">
+      {{ id_productError?.msg }}
+    </p>
+    <label for="volumen">Volumen (kg)</label>
+    <input
+      type="number"
+      placeholder="Introduzca una Cantidad"
+      formControlName="vol_sale"
+    />
+    <p class="text-danger" *ngIf="vol_saleError?.param">
+      {{ vol_saleError?.msg }}
+    </p>
+    <p *ngIf="flag" class="stock">No hay suficiente stock</p>
+
+    <label for="shipping">Método de Envío</label>
+    <select name="shipping" type="text" formControlName="shipping">
+      <option value="" selected>Seleccione un Envío</option>
+      <option value="paquete">Paquete</option>
+      <option value="palets incompleto">Palet Incompleto</option>
+      <option value="palets completo">Palet Completo</option>
+    </select>
+    <p class="text-danger" *ngIf="shippingError?.param">
+      {{ shippingError?.msg }}
+    </p>
+
+    <label for="meth_payment">Método de pago</label>
+    <select
+      name="meth_payment"
+      id="meth_payment"
+      formControlName="meth_payment"
+    >
+      <option value="" selected>Seleccione un tipo de pago</option>
+      <option value="tarjeta">Tarjeta</option>
+      <option value="otros">Otro</option>
+    </select>
+    <p class="text-danger" *ngIf="meth_paymentError?.param">
+      {{ meth_paymentError?.msg }}
+    </p>
+
+    <label for="price_sale">Precio (€)</label>
+    <input
+      type="number"
+      class="number"
+      placeholder="Introduzca una Cantidad"
+      formControlName="price_sale"
+    />
+    <p class="text-danger" *ngIf="price_saleError?.param">
+      {{ price_saleError?.msg }}
+    </p>
+
+    <input
+      class="none"
+      id="id"
+      type="number"
+      readonly
+      [(ngModel)]="userId"
+      formControlName="id_user"
+    />
+
+    <input
+      class="none"
+      id="date"
+      type="text"
+      readonly
+      [(ngModel)]="date"
+      formControlName="date_order"
+    />
+
+    <label for="status">Estado del Pedido</label>
+    <select
+      name="status"
+      id="status"
+      formControlName="status"
+      (input)="sendMail($event)"
+    >
+      <option class="gray" value="" selected>Seleccione un Estado</option>
+      <option value="aceptado">Aceptado</option>
+      <option value="pendiente">Pendiente</option>
+      <option value="denegado">Denegado</option>
+    </select>
+    <p class="text-danger" *ngIf="statusError?.param">
+      {{ statusError?.msg }}
+    </p>
+
+
+    <div
+    *ngIf="status === 'pendiente' || textMail === 'pendiente'"
+    class="content-director"
+  >
+    <label for="director">Seleccione un destinatario</label>
+    <select name="director" id="" (input)="selectMailDirector($event)">
+      <option>Seleccione un destinatario</option>
+      <option *ngFor="let user of arrUsers" [value]="user.mail_user">
+        {{ user.name_user }} {{ user.surname_user }}
+      </option>
+    </select>
+    <p *ngIf="flag2" class="stock">Introduce un destinatario.</p>
+  </div>
+
+    <div class="border"></div>
+
+    <div class="textArea">
+      <label for="comment">Comentario</label>
+      <br />
+      <textarea
+        name="comment"
+        id="comment"
+        cols="30"
+        rows="10"
+        formControlName="comment"
+      ></textarea>
+      <p class="text-danger" *ngIf="commentError?.param">
+        {{ commentError?.msg }}
+      </p>
+    </div>
+
+    <div class="containerButton">
+      <input class="btn" type="submit" value="Enviar" />
+    </div>
+  </form>
+</div>

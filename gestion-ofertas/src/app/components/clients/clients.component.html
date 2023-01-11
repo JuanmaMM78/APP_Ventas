@@ -1,0 +1,55 @@
+<div class="container">
+  <h1>Clientes</h1>
+  <div class="clients-header">
+    <select
+      name="clientOptions"
+      id="filters"
+      class="btn filter-btn"
+      (input)="showClients($event)"
+    >
+      <option value="Todos" selected>Todos</option>
+      <option value="Activos">Activos</option>
+      <option value="Inactivos">Inactivos</option>
+    </select>
+  </div>
+  <div class="add">
+    <button class="buttonAdd" [routerLink]="[path, 'new']">
+      Añadir Cliente
+    </button>
+  </div>
+  <div class="container__flex">
+    <article
+      [ngClass]="{
+        active: client?.status === 1,
+        inactive: client?.status === 0
+      }"
+      class="clients"
+      *ngFor="let client of arrClients"
+    >
+      <div class="clients__header">
+        <h3>{{ client.name_client }}</h3>
+      </div>
+      <div class="card">
+        <div class="clients__body">
+          <div class="mail">
+            <p><strong>Email: </strong></p>
+            <p class="text__body">{{ client.mail_client }}</p>
+          </div>
+          <div class="direc">
+            <p><strong>Dirección:</strong></p>
+            <p class="text__body">{{ client.direction }}</p>
+          </div>
+          <p><strong>Teléfono: </strong> {{ client.phone }}</p>
+        </div>
+      </div>
+      <div class="buttonEdit">
+        <button
+          [routerLink]="[path, 'update', client.id_client]"
+          class="buttonEdit"
+        >
+          <strong>Editar</strong>
+        </button>
+      </div>
+    </article>
+  </div>
+</div>

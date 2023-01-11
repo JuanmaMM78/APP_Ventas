@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+  <form
+    novalidate
+    [formGroup]="register"
+    class="form"
+    (ngSubmit)="getDataForm()"
+  >
+
+    <label for="name">Introduzca el Nombre</label>
+    <input type="text" class="name" placeholder="Nombre" formControlName="name_client" />
+    <p class="error" *ngIf="name_clientError?.param">
+      {{ name_clientError?.msg }}
+    </p>
+
+    <label for="email">Introduzca el Email</label>
+    <input type="text" class="email" placeholder="Email" formControlName="mail_client" />
+    <p class="error" *ngIf="mail_clientError?.param">
+      {{ mail_clientError?.msg }}
+    </p>
+
+    <label for="direction">Introduzca la Dirección</label>
+    <input type="text" class="direction" placeholder="Dirección" formControlName="direction" />
+    <p class="error" *ngIf="directionError?.param">
+      {{ directionError?.msg }}
+    </p>
+
+    <label for="phone">Introduzca el Teléfono</label>
+    <input type="text" class="phone" placeholder="Teléfono" formControlName="phone" />
+    <p class="error" *ngIf="phoneError?.param">
+      {{ phoneError?.msg }}
+    </p>
+
+    <label for="status">Indique el Estado</label>
+    <select name="status" id="status" formControlName="status">
+      <option value="" selected>Estado</option>
+      <option value="1">Activo</option>
+      <option value="0">Inactivo</option>
+    </select>
+    <p class="error" *ngIf="statusError?.param">
+      {{ statusError?.msg }}
+    </p>
+
+    <input class="btn" type="submit" value="Crear" />
+  </form>
+</div>

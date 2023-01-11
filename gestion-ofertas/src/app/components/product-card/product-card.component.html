@@ -1,0 +1,35 @@
+<div
+  class="card"
+  [ngClass]="{
+    stock: myProduct.status === 1,
+    noStock: myProduct.status === 0
+  }"
+>
+  <figure class="card__img">
+    <img
+      loading="lazy"
+      [src]="'https://gestion-ofertas.onrender.com/images/' + myProduct.image"
+      alt="Foto Producto"
+    />
+  </figure>
+  <div class="card__info">
+    <div class="card__title">
+      <h3>{{ myProduct?.name_product }}</h3>
+    </div>
+    <div class="product__data">
+      <div>
+        <p>Calibre: {{ myProduct?.caliber }}</p>
+        <p>Stock: {{ myProduct?.stock_now }} kg</p>
+        <p>Precio: {{ myProduct?.price }} €/kg</p>
+      </div>
+      <div class="buttonEdit" *ngIf="profile?.userRole !== 'user'">
+        <button
+          [routerLink]="[path, 'updateProduct', myProduct.id_product]"
+          class="buttonEdit"
+        >
+          <strong>Editar</strong>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
